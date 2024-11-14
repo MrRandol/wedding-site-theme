@@ -1,0 +1,40 @@
+.site-logo {
+    max-height: 7vh;
+}
+
+.cover-content {
+    min-height: 20vh;
+    transition: opacity 4s ease, transform 4s ease;
+    transform: scale(1);
+    opacity: 1;
+    max-width: 900px;
+}
+
+.cover-description {
+    color: black !important;
+    font-family: 'Ovo' !important;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 2em;
+    margin-bottom: 4em;
+    font-size: 1.5em;
+}
+
+.cover.image-loading .cover-content{
+    transform: scale(0.8);
+    height: auto;
+    opacity: 0;
+}
+
+.with-full-cover .cover {
+    opacity: .8;
+}
+/* Tone down cover background mask opacity */
+.with-full-cover .cover:before {
+    opacity: .2;
+}
+
+ /* Force center navigation as it is the only element left */
+.is-head-left-logo .gh-head-inner {
+    grid-template-columns: 1fr;
+}
