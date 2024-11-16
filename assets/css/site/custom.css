@@ -2,6 +2,94 @@ body {
     background-color: var(--background-color);
 }
 
+.home-template .site-main {
+    h2, h4, p, span {
+        color: #873154 !important;
+        font-family: "Work Sans" !important;
+    }
+}
+
+.three-box {
+    grid-column: wide-start/wide-end;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+@media screen and (max-width:767px) {
+    .three-box {
+        grid-template-columns: 1fr; 
+    }
+}
+
+.three-box .kg-product-card-container {
+    height: 100%
+}
+
+.two-box {
+    grid-column: wide-start/wide-end;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+@media screen and (max-width:767px) {
+    .two-box {
+        grid-template-columns: 1fr; 
+    }
+}
+
+.two-box .kg-product-card-container {
+    height: 100%
+}
+
+.single-header.gh-canvas {
+    display: none;
+}
+
+.kg-card.kg-header-card {
+    background: none !important;
+    .kg-header-card-text.kg-align-center h2, .kg-header-card-text.kg-align-center p {
+        color: #873154 !important;
+    } 
+}
+
+.kg-header-card-content picture img {
+    padding: 100px;
+    object-fit: contain !important;
+}
+
+.whatwhenwhere {
+    h4 {
+        text-align: center;
+        font-family: "Cinzel";
+        font-size: 2em;
+    }
+
+    .kg-product-card-title {
+        text-align: center;
+        font-size: 2em;
+    }
+
+    .kg-product-card-description p {
+        font-size: .7em;
+        text-align: center;
+    }
+
+    .kg-product-card-container {
+        background: none;
+        box-shadow: none;
+    }
+
+    .kg-product-card-title-container {
+        order: 1;
+    }
+    img {
+        order: 2;
+    }
+    .kg-product-card-description {
+        order: 3;
+    }
+}
+
 .button-icon.cover-arrow {
     display: inline-flex;
     transition: opacity 4s ease;
