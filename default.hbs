@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{@site.locale}}">
+{{!< bodywrap}}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{meta_title}}</title>
-
-    <link rel="stylesheet" href="{{asset "built/screen.css"}}">
-    <link rel="stylesheet" href="{{asset "built/screen.css"}}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ovo&display=swap" rel="stylesheet">
-    {{ghost_head}}
-</head>
-
-<body class="{{body_class}}{{{block "body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}{{^is "home"}}{{#if @site.cover_image}} is-head-brand{{/if}}{{/is}}">
 <div class="site">
 
     <header id="gh-head" class="gh-head gh-outer">
@@ -109,6 +94,3 @@
 <script src="{{asset "built/main.min.js"}}"></script>
 
 {{ghost_foot}}
-
-</body>
-</html>

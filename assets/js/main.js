@@ -3,7 +3,9 @@ var body = document.body;
 var timeout;
 var st = 0;
 
-cover();
+//cover();
+loadingEvent();
+arrowScroll();
 featured();
 pagination(false);
 
@@ -30,6 +32,26 @@ function portalButton() {
     } else {
         body.classList.remove('portal-visible');
     }
+}
+
+function loadingEvent() {
+    'use strict';
+    var loadingWrappers = document.querySelectorAll('.loading-event');
+    if (!loadingWrappers) return;
+
+    imagesLoaded(loadingWrappers, function () {
+        for (var node of loadingWrappers) {
+            node.classList.remove('loading');
+        }
+        // loadingWrappers.classList.remove('loading');
+    });
+}
+
+function arrowScroll() {
+    document.querySelector('.cover-arrow').addEventListener('click', function () {
+        var element = cover.nextElementSibling;
+        element.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
 }
 
 function cover() {

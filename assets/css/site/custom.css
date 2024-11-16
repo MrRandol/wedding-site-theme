@@ -1,5 +1,23 @@
+body {
+    background-color: var(--background-color);
+}
+
+.button-icon.cover-arrow {
+    display: inline-flex;
+    transition: opacity 4s ease;
+    opacity: 1;
+    .icon {
+        color: var(--ghost-accent-color);
+        background-color: rgba(255,255,255,.4);
+        border-radius: 50%;
+    }
+}
+
 .site-logo {
     max-height: 7vh;
+    z-index: 10;
+    transition: opacity 4s ease;
+    opacity: 1;
 }
 
 .cover-content {
@@ -19,8 +37,11 @@
     margin-bottom: 4em;
     font-size: 1.5em;
 }
+.cover.loading .button-icon, nav.loading .site-logo {
+    opacity: 0;
+}
 
-.cover.image-loading .cover-content{
+.cover.loading .cover-content {
     transform: scale(0.8);
     height: auto;
     opacity: 0;

@@ -42,6 +42,10 @@
         },
         "card_assets": true,
         "custom": {
+            "background_color": {
+                "type": "color",
+                "default": "#BFCBC9"
+            },
             "navigation_layout": {
                 "type": "select",
                 "options": [
