@@ -1,12 +1,12 @@
+/* General customisation */
 body {
     background-color: var(--background-color);
 }
 
-.home-template .site-main {
-    h2, h4, p, span {
-        color: #873154 !important;
-        font-family: "Work Sans" !important;
-    }
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .three-box {
@@ -41,98 +41,13 @@ body {
     height: 100%
 }
 
-.single-header.gh-canvas {
-    display: none;
-}
 
-.kg-card.kg-header-card {
-    background: none !important;
-    .kg-header-card-text.kg-align-center h2, .kg-header-card-text.kg-align-center p {
-        color: #873154 !important;
-    } 
-}
-
-.kg-header-card-content picture img {
-    padding: 100px;
-    object-fit: contain !important;
-}
-
-.whatwhenwhere {
-    h4 {
-        text-align: center;
-        font-family: "Cinzel";
-        font-size: 2em;
-    }
-
-    .kg-product-card-title {
-        text-align: center;
-        font-size: 2em;
-    }
-
-    .kg-product-card-description p {
-        font-size: .7em;
-        text-align: center;
-    }
-
-    .kg-product-card-container {
-        background: none;
-        box-shadow: none;
-    }
-
-    .kg-product-card-title-container {
-        order: 1;
-    }
-    img {
-        order: 2;
-    }
-    .kg-product-card-description {
-        order: 3;
-    }
-}
-
-.button-icon.cover-arrow {
-    display: inline-flex;
-    transition: opacity 4s ease;
-    opacity: 1;
-    .icon {
-        color: var(--ghost-accent-color);
-        background-color: rgba(255,255,255,.4);
-        border-radius: 50%;
-    }
-}
-
+/* Cover and header section */
 .site-logo {
     max-height: 7vh;
     z-index: 10;
     transition: opacity 4s ease;
     opacity: 1;
-}
-
-.cover-content {
-    min-height: 20vh;
-    transition: opacity 4s ease, transform 4s ease;
-    transform: scale(1);
-    opacity: 1;
-    max-width: 900px;
-}
-
-.cover-description {
-    color: black !important;
-    font-family: 'Ovo' !important;
-    font-style: normal;
-    font-weight: 400;
-    margin-top: 2em;
-    margin-bottom: 4em;
-    font-size: 1.5em;
-}
-.cover.loading .button-icon, nav.loading .site-logo {
-    opacity: 0;
-}
-
-.cover.loading .cover-content {
-    transform: scale(0.8);
-    height: auto;
-    opacity: 0;
 }
 
 .with-full-cover .cover {
@@ -143,7 +58,160 @@ body {
     opacity: .2;
 }
 
- /* Force center navigation as it is the only element left */
+/* Force center navigation as it is the only element left */
 .is-head-left-logo .gh-head-inner {
     grid-template-columns: 1fr;
 }
+
+.cover {
+    .button-icon.cover-arrow {
+        display: inline-flex;
+        bottom: 15px;
+        transform: scale(1.3);
+        transition: opacity 4s ease;
+        opacity: 1;
+        .icon {
+            color: var(--ghost-accent-color);
+            background-color: rgba(255,255,255,.4);
+            border-radius: 50%;
+        }
+    }
+
+    .cover-content {
+        min-height: 20vh;
+        transition: opacity 4s ease, transform 4s ease;
+        transform: scale(1);
+        opacity: 1;
+        max-width: 900px;
+    }
+
+    .cover-description {
+        color: black !important;
+        font-family: 'Ovo' !important;
+        font-style: normal;
+        font-weight: 400;
+        margin-top: 2em;
+        margin-bottom: 4em;
+        font-size: 1.5em;
+    }
+    &.loading .button-icon, nav.loading .site-logo {
+        opacity: 0;
+    }
+
+    &.loading .cover-content {
+        transform: scale(0.8);
+        height: auto;
+        opacity: 0;
+    }
+}
+
+/* Home page */
+.home-template .site .site-content .site-main {
+    padding: 0;
+    
+    /* Hide page title for landing page, no need, and adjust first section to not be too low */
+    .single-title {
+        display: none;
+    }
+    .single-content.gh-content.gh-canvas {
+        margin-top: 0;
+    }
+
+    /* General home text styles */
+    p, span {
+        color: #873154;
+        font-family: "Ovo";
+        text-align: center;
+    }
+    h2, h4, h2 > span, h4 > span {
+        font-family: "Cinzel";
+        color: #873154;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    /* Our story section */
+    .our-story {
+        grid-column: full;
+        .kg-header-card-text.kg-align-center {
+            padding: min(8vmax,150px) min(4vmax,80px);
+        }
+
+        .kg-card.kg-header-card {
+            background: none !important;
+        }
+    
+        .kg-header-card-content picture {
+            display: flex;
+            align-items: center;
+            justify-content: center;       
+            position: relative;
+
+            img {
+                clip-path: ellipse(40% 40% at 50% 50%);
+                height: 100%;
+                max-height: 800px;
+                width: auto;
+                display: block;
+            }
+            
+            &:after {
+                content: "";
+                background-image: url(/assets/images/storyImageBorder.svg);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+        }
+    }
+
+    /* What When Where section */
+    .whatwhenwhere {
+        .kg-product-card-description p {
+            font-size: 24px !important;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .kg-product-card-container {
+            background: none;
+            box-shadow: none;
+        }
+
+        /* Reorder product card to match title, image then description */
+        .kg-product-card-title-container {
+            order: 1;
+        }
+        img {
+            order: 2;
+        }
+        .kg-product-card-description {
+            order: 3;
+        }
+    }
+
+    /* FAQ Section */
+    .faq {
+
+        padding: 10px;
+
+        h4, p {
+            text-align: left;
+        }
+
+        h4 {
+            font-size: 1.2em;
+        }
+
+        p {
+            padding-bottom: 1em;
+        }
+    }
+}
+
+

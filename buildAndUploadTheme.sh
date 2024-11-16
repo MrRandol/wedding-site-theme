@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+GHOST_HOST=http://192.168.50.5:7897
+GHOST_HOST=http://test.mrrandol.duckdns.org
+
 rm ./dist/*.zip
 
 # Compile theme
@@ -42,7 +45,6 @@ TOKEN="${header_payload}.${signature}"
 echo "----------------------------------------------"
 echo "Uploading and activating randol"
 echo "----------------------------------------------"
-mv ./dist/randol.zip ./dist/randol.zip
 # Make an authenticated request to create a post
-curl -F "file=@/d/Projects/source-randol/dist/randol.zip" -H "Authorization: Ghost $TOKEN" -H "Accept-Version: v3.0" http://192.168.50.5:7897/ghost/api/admin/themes/upload
-curl -X PUT -H "Authorization: Ghost $TOKEN" -H "Accept-Version: v3.0" "http://192.168.50.5:7897/ghost/api/admin/themes/randol/activate"
+curl --retry 3 -F "file=@./dist/randol.zip" -H "Authorization: Ghost $TOKEN" -H "Accept-Version: v3.0" ${GHOST_HOST}/ghost/api/admin/themes/upload
+curl --retry 3 -X PUT -H "Authorization: Ghost $TOKEN" -H "Accept-Version: v3.0" "${GHOST_HOST}/ghost/api/admin/themes/randol/activate"

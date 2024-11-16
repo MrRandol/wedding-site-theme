@@ -48,6 +48,7 @@ function loadingEvent() {
 }
 
 function arrowScroll() {
+    var cover = document.querySelector('.cover');
     document.querySelector('.cover-arrow').addEventListener('click', function () {
         var element = cover.nextElementSibling;
         element.scrollIntoView({behavior: 'smooth', block: 'start'});
