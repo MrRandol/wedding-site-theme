@@ -11,7 +11,7 @@ pagination(false);
 
 window.addEventListener('scroll', function () {
     'use strict';
-    if (body.classList.contains('home-template') && body.classList.contains('with-full-cover') && !document.querySelector('.cover').classList.contains('half')) {
+    if (body.classList.contains('tag-home') && body.classList.contains('with-full-cover') && !document.querySelector('.cover').classList.contains('half')) {
         if (timeout) {
             window.cancelAnimationFrame(timeout);
         }
@@ -27,7 +27,7 @@ function portalButton() {
     'use strict';
     st = window.scrollY;
 
-    if (st > 300) {
+    if (st > 400) {
         body.classList.add('portal-visible');
     } else {
         body.classList.remove('portal-visible');

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 GHOST_HOST=http://192.168.50.5:7897
-GHOST_HOST=http://test.mrrandol.duckdns.org
+#GHOST_HOST=http://test.mrrandol.duckdns.org
 
 rm ./dist/*.zip
 

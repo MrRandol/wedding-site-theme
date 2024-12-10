@@ -26,8 +26,8 @@
                     {{/match}}
                 {{/unless}} --}}
             </nav>
-
-            {{!-- <div class="gh-head-actions">
+{{!-- 
+            <div class="gh-head-actions">
                 {{#unless @site.members_enabled}}
                     {{^match @custom.navigation_layout "Stacked"}}
                         <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
@@ -38,7 +38,7 @@
                         {{#unless @member}}
                             {{#unless @site.members_invite_only}}
                                 <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
-                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                                 <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
                             {{else}}
                                 <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Sign in</a>
                             {{/unless}}
@@ -73,7 +73,7 @@
                 </nav>
             {{/if}}
             <div class="gh-powered-by">
-                <a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a>
+                {{!-- <a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a> --}}
             </div>
         </div>
     </footer>

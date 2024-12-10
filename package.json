@@ -46,6 +46,13 @@
                 "type": "color",
                 "default": "#BFCBC9"
             },
+            "text_color": {
+                "type": "color",
+                "default": "#873154"
+            },
+            "image_border": {
+                "type": "image"
+            },
             "navigation_layout": {
                 "type": "select",
                 "options": [

@@ -41,6 +41,31 @@ body {
     height: 100%
 }
 
+button {
+    background-color: var(--ghost-accent-color);
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 4px;
+    border: none;
+}
+
+button:hover {
+    background-color: #66738B !important;
+}
+
+/* landing page specific override to hide the branding */
+.home .site-main:after {
+    background-color: var(--background-color);
+    display: block;
+    content: "";
+    height: 60px;
+    width: 100%;
+    margin-top: -56px;
+    z-index: 2000;
+    position: absolute;
+}
+
 
 /* Cover and header section */
 .site-logo {
@@ -66,7 +91,7 @@ body {
 .cover {
     .button-icon.cover-arrow {
         display: inline-flex;
-        bottom: 15px;
+        bottom: 30px;
         transform: scale(1.3);
         transition: opacity 4s ease;
         opacity: 1;
@@ -83,16 +108,23 @@ body {
         transform: scale(1);
         opacity: 1;
         max-width: 900px;
+        z-index: 200;
+    }
+
+    /* Mobile override */
+    @media (max-width: 640px) {
+        .kg-header-card-content .kg-header-card-image:not(.kg-content-wide .kg-header-card-content .kg-header-card-image) {
+            aspect-ratio: unset;
+        }
     }
 
     .cover-description {
         color: black !important;
         font-family: 'Ovo' !important;
         font-style: normal;
-        font-weight: 400;
-        margin-top: 2em;
-        margin-bottom: 4em;
-        font-size: 1.5em;
+        font-weight: 600;
+        margin-top: 40px;
+        font-size: 30px;
     }
     &.loading .button-icon, nav.loading .site-logo {
         opacity: 0;
@@ -103,10 +135,44 @@ body {
         height: auto;
         opacity: 0;
     }
+
+    #cover-image-blur {
+        z-index: 100;
+        height: 2%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0), var(--background-color));
+    }
+}
+
+/* floater */
+#floater {
+   font-family: "Ovo";
+   opacity: 0;
+   position: fixed;
+   bottom: 20px;
+   right: 20px; 
+   cursor: default;
+   transition: opacity 1s ease;
+   z-index: 3000;
+}
+
+#floater.visible {
+    opacity: 1;
+}
+
+body:not(.portal-visible) #floater {
+    opacity: 0;
+}
+
+#floater:hover {
+    background: var(--ghost-accent-color);
 }
 
 /* Home page */
-.home-template .site .site-content .site-main {
+.site.home .site-content .site-main {
     padding: 0;
     
     /* Hide page title for landing page, no need, and adjust first section to not be too low */
@@ -119,15 +185,26 @@ body {
 
     /* General home text styles */
     p, span {
-        color: #873154;
+        color: var(--text-color);
         font-family: "Ovo";
         text-align: center;
+        font-size: 35px;
+        @media (max-width: 640px) {
+            font-size: 25px;
+        }
     }
     h2, h4, h2 > span, h4 > span {
         font-family: "Cinzel";
-        color: #873154;
+        color: var(--text-color);
         text-align: center;
-        font-size: 35px;
+        font-size: 60px;
+        @media (max-width: 640px) {
+            font-size: 45px;
+        }
+    }
+
+    hr {
+        background-color: var(--ghost-accent-color);
     }
 
     /* Our story section */
@@ -140,12 +217,14 @@ body {
         .kg-card.kg-header-card {
             background: none !important;
         }
-    
+
         .kg-header-card-content picture {
             display: flex;
             align-items: center;
             justify-content: center;       
             position: relative;
+
+
 
             img {
                 clip-path: ellipse(40% 40% at 50% 50%);
@@ -153,11 +232,33 @@ body {
                 max-height: 800px;
                 width: auto;
                 display: block;
+                @media (max-width: 640px) {
+                    aspect-ratio: unset !important;
+                }
             }
+
+            /* &:before {
+                content: "";
+                background-color: var(--ghost-accent-color);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                clip-path: ellipse(19.5% 41.3% at 50% 50%);
+            }
+            @media (max-width: 640px) {
+                &:before {
+                    clip-path: ellipse(41.5% 41.2% at 50% 50%) !important;
+                }
+            } */
             
             &:after {
                 content: "";
-                background-image: url(/assets/images/storyImageBorder.svg);
+                background-image: var(--image-border); /*url(/assets/images/storyImageBorder.svg); */
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -188,16 +289,22 @@ body {
             order: 1;
         }
         img {
-            order: 2;
+            background: linear-gradient(0, var(--text-color) 0, var(--text-color) 0), linear-gradient(135deg, transparent 12px, var(--text-color) 12px), linear-gradient(0, var(--text-color) 0, var(--text-color) 0), linear-gradient(315deg, transparent 12px, var(--text-color) 12px);
+            background-position: bottom left, top left, top right, bottom right;
+            background-size: 50% 50%;
+            background-repeat: no-repeat;
+            padding: 13px;
         }
         .kg-product-card-description {
             order: 3;
         }
+
     }
 
     /* FAQ Section */
     .faq {
 
+        margin-top: 80px;
         padding: 10px;
 
         h4, p {
@@ -205,13 +312,13 @@ body {
         }
 
         h4 {
-            font-size: 1.2em;
+            font-size: 30px;
         }
 
         p {
             padding-bottom: 1em;
+            font-size: 25px;
         }
     }
 }
-
 

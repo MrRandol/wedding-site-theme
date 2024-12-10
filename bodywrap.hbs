@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{@site.locale}}">
+<html lang="{{{block "lang"}}}">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{meta_title}}</title>
+    <title>{{@site.title}}</title>
 
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
@@ -22,6 +22,12 @@
         :root {
             {{#if @custom.background_color}}
                 --background-color: {{@custom.background_color}};
+            {{/if}}
+            {{#if @custom.text_color}}
+                --text-color: {{@custom.text_color}};
+            {{/if}}
+            {{#if @custom.image_border}}
+                --image-border: url({{@custom.image_border}});
             {{/if}}
         }
     </style>
