@@ -61,7 +61,6 @@ function getJsFiles(version) {
     }
 
     jsFiles.push(src(`assets/js/main.js`));    
-    jsFiles.push(src(`assets/js/pure-snow.js`));
 
 
     return jsFiles;
@@ -86,7 +85,7 @@ function zipper(done) {
             '!node_modules', '!node_modules/**',
             '!dist', '!dist/**',
             '!yarn-error.log'
-        ]),
+        ], {encoding: false}),
         zip(filename),
         dest('dist/')
     ], handleError(done));

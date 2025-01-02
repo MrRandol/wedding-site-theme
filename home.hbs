@@ -3,19 +3,10 @@
 {{!< bodywrap}}
 
 <div class="site home">
-    <header id="gh-head" class="gh-head gh-outer">
-        <div class="gh-head-inner">
-            <nav class="gh-head-menu loading-event loading">
-                {{!-- {{navigation}} --}}
-                <img class="site-logo" src="{{@site.icon}}">
-            </nav>
-        </div>
-    </header>
-
     <div class="cover loading-event loading gh-outer">
+        <img class="site-logo" src="{{@site.icon}}">
         {{#if @site.cover_image}}
             <img class="cover-image u-object-fit" src="{{@site.cover_image}}" alt="{{@site.title}}">
-            <div id="cover-image-blur"></div>
         {{/if}}
 
         <div class="cover-content">
@@ -27,14 +18,12 @@
             {{/if}}
         </div>
 
-        <button class="button-icon cover-arrow">
-            {{> "icons/caret-down"}}
-        </button>
+        <div id="rsvp-banner">RSVP</div>
+
     </div>
 
     <div class="site-content">
         <main class="site-main">
-            <div id="snow" data-count="200"></div>
 
             {{#post}}
                 {{> "content" width="wide"}}

@@ -3,11 +3,8 @@ var body = document.body;
 var timeout;
 var st = 0;
 
-//cover();
 loadingEvent();
-arrowScroll();
-featured();
-pagination(false);
+RSVPScroll();
 
 window.addEventListener('scroll', function () {
     'use strict';
@@ -43,57 +40,55 @@ function loadingEvent() {
         for (var node of loadingWrappers) {
             node.classList.remove('loading');
         }
-        // loadingWrappers.classList.remove('loading');
     });
 }
 
-function arrowScroll() {
-    var cover = document.querySelector('.cover');
-    document.querySelector('.cover-arrow').addEventListener('click', function () {
-        var element = cover.nextElementSibling;
-        element.scrollIntoView({behavior: 'smooth', block: 'start'});
+function RSVPScroll() {
+    document.querySelector('#rsvp-banner').addEventListener('click', function () {
+        var form = document.querySelector('iframe[title="Wedding RSVP"]')
+        form.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
 }
 
-function cover() {
-    'use strict';
-    var cover = document.querySelector('.cover');
-    if (!cover) return;
+const canv = document.getElementById("canvas"),
+      ctx = canv.getContext("2d"),
+      imgSelector = document.querySelectorAll(".our-portrait figure img"),
+      imgMask = new Image();
+      
+imgMask.src = "https://res.cloudinary.com/dkcygpizo/image/upload/v1505176017/codepen/cloud-texture.png";
+const img = (imgSelector != null && imgSelector.length > 0) ? imgSelector[0] : null;
 
-    imagesLoaded(cover, function () {
-        cover.classList.remove('image-loading');
-    });
+let speed = 0;
+function draw() {
+  speed += 7;
 
-    document.querySelector('.cover-arrow').addEventListener('click', function () {
-        var element = cover.nextElementSibling;
-        element.scrollIntoView({behavior: 'smooth', block: 'start'});
-    });
+  const maskX = (canv.width - (70 + speed)) / 2,
+        maskY = (canv.height - (40 + speed)) / 2;
+
+  ctx.clearRect(0, 0, canv.width, canv.height);
+  ctx.globalCompositeOperation = "source-over";
+
+  ctx.drawImage(imgMask, maskX, maskY, 70 + speed, 40 + speed);
+
+  ctx.globalCompositeOperation = "source-in";
+  ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
+
+  requestId = window.requestAnimationFrame(draw);
 }
 
-function featured() {
-    'use strict';
-    var feed = document.querySelector('.featured-feed');
-    if (!feed) return;
-
-    tns({
-        container: feed,
-        controlsText: [
-            '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M20.547 22.107L14.44 16l6.107-6.12L18.667 8l-8 8 8 8 1.88-1.893z"></path></svg>',
-            '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path></svg>',
-        ],
-        gutter: 30,
-        loop: false,
-        nav: false,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            768: {
-                items: 2,
-            },
-            992: {
-                items: 3,
-            },
-        },
-    });
-}
+const ourStory=document.getElementById("our-story");
+const observer = new window.IntersectionObserver(([entry]) => {
+  if (entry.isIntersecting) {
+        setTimeout(() => {
+            canv.width = img.naturalWidth;
+            canv.height = img.naturalHeight;
+            canv.classList.remove("hidden");
+            draw();
+          }, 500);
+    return
+  }
+}, {
+  root: null,
+  threshold: 0.1, // set offset 0.1 means trigger if atleast 10% of element in viewport
+})
+observer.observe(ourStory);

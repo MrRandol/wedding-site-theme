@@ -20,4 +20,6 @@
 @import "misc/utils.css";
 @import "misc/portal.css";
 @import "misc/animations.css";
-@import "site/custom.css"
+@import "site/custom.css";
+@import "site/home.css";
+@import "site/home-mobile.css";

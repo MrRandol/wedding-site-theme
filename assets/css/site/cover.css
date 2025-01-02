@@ -1,6 +1,6 @@
-body:not(.with-full-cover) .cover {
+/* body:not(.with-full-cover) .cover {
     margin-top: 9vmin;
-}
+} */
 
 .with-full-cover .cover {
     position: relative;

@@ -1,44 +1,134 @@
-/* General customisation */
+/* ------------------------- */
+/* CROSS SITE CUSTOMIZATIONS */
+/* ------------------------- */
+
+#canvas {
+    display: block;
+    height: auto;
+    mix-blend-mode: multiply;
+    width: 597px;
+    max-width: 100%;
+    margin: auto;
+  }
+  
+  .our-portrait {
+    min-height: 450px;
+      .kg-image,
+      #canvas.hidden {
+        height: 0 !important;
+
+      }
+  }
+
 body {
-    background-color: var(--background-color);
+    background: var(--background-image);
+    background-size: auto;
+    overflow-x: hidden;
+}
+
+.gh-head {
+    background: none;
+}
+
+.gh-foot {
+    padding-bottom: 0;
+}
+
+p, span{
+    font-family: var(--body-font) !important;
+    color: var(--text-color) !important;
+    font-size: 27px !important;
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6, h4.kg-toggle-heading-text > span {
+    color: var(--text-color) !important;
+    font-family: var(--title-font) !important;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px !important;
+    font-weight: 700;
+}
+h2 {
+    font-size: 45px !important;
+}
+h3 {
+    font-size: 40px !important;
+}
+h4 {
+    font-size: 35px !important;
+}
+h5 {
+    font-size: 27px !important;
+}
+
+/* Toggles (spoiler boxes) */
+.kg-toggle-card {
+    padding: 0;
+    box-shadow: none;
+   
+    border: 2px solid #ccc;
+    border-radius: 15px;
+
+    .kg-toggle-heading {
+        padding: 1.2em;
+        border-radius: 15px;
+        align-items: center;
+        h4 {
+            text-align: left;
+        }
+    }
+
+    .kg-toggle-heading:hover {
+        background-color: var(--ghost-accent-color);
+        h4 span {
+            color: white !important;
+        }
+    }
+    .kg-toggle-card-icon {
+        content: url('../images/plus.png');
+        width: 20px;
+        height: auto;
+    }
+    &[data-kg-toggle-state="open"] .kg-toggle-card-icon {
+        content: url('../images/minus.png');       
+    }
+}
+/* End Toggles */
+
+hr {
+    background-color: transparent !important;
+    height: 100%;
+    min-height: 40px;
+    background: url('../images/hr2.png') no-repeat top center;
+    mix-blend-mode: multiply;
+    background-size: contain;
+    display: block;
+    border: 0;
+    content: "";
+    margin: calc(2.4em* var(--content-spacing-multiplier, 1)) 0 !important;
+}
+
+
+.divider {
+    background-color: transparent !important;
+    height: 100px;
+    margin: 2em 0;
+    background: url('../images/hr2.png') no-repeat top center;
+    mix-blend-mode: multiply;
+    background-size: contain;
+    display: block;
+    border: 0;
+    content: "";
+    margin: calc(2.4em* var(--content-spacing-multiplier, 1)) 0 !important;
 }
 
 .flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.three-box {
-    grid-column: wide-start/wide-end;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
-}
-@media screen and (max-width:767px) {
-    .three-box {
-        grid-template-columns: 1fr; 
-    }
-}
-
-.three-box .kg-product-card-container {
-    height: 100%
-}
-
-.two-box {
-    grid-column: wide-start/wide-end;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-@media screen and (max-width:767px) {
-    .two-box {
-        grid-template-columns: 1fr; 
-    }
-}
-
-.two-box .kg-product-card-container {
-    height: 100%
 }
 
 button {
@@ -54,287 +144,14 @@ button:hover {
     background-color: #66738B !important;
 }
 
-/* landing page specific override to hide the branding */
-.home .site-main:after {
-    background-color: var(--background-color);
-    display: block;
-    content: "";
-    height: 60px;
-    width: 100%;
-    margin-top: -56px;
-    z-index: 2000;
-    position: absolute;
-}
-
-
-/* Cover and header section */
-.site-logo {
-    max-height: 7vh;
-    z-index: 10;
-    transition: opacity 4s ease;
-    opacity: 1;
-}
-
-.with-full-cover .cover {
-    opacity: .8;
-}
-/* Tone down cover background mask opacity */
-.with-full-cover .cover:before {
-    opacity: .2;
+footer {
+    background-image: url('../images/garland-bottom.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+    /* rotate: 180deg; */
 }
 
 /* Force center navigation as it is the only element left */
 .is-head-left-logo .gh-head-inner {
     grid-template-columns: 1fr;
 }
-
-.cover {
-    .button-icon.cover-arrow {
-        display: inline-flex;
-        bottom: 30px;
-        transform: scale(1.3);
-        transition: opacity 4s ease;
-        opacity: 1;
-        .icon {
-            color: var(--ghost-accent-color);
-            background-color: rgba(255,255,255,.4);
-            border-radius: 50%;
-        }
-    }
-
-    .cover-content {
-        min-height: 20vh;
-        transition: opacity 4s ease, transform 4s ease;
-        transform: scale(1);
-        opacity: 1;
-        max-width: 900px;
-        z-index: 200;
-    }
-
-    /* Mobile override */
-    @media (max-width: 640px) {
-        .kg-header-card-content .kg-header-card-image:not(.kg-content-wide .kg-header-card-content .kg-header-card-image) {
-            aspect-ratio: unset;
-        }
-    }
-
-    .cover-description {
-        color: black !important;
-        font-family: 'Ovo' !important;
-        font-style: normal;
-        font-weight: 600;
-        margin-top: 40px;
-        font-size: 30px;
-    }
-    &.loading .button-icon, nav.loading .site-logo {
-        opacity: 0;
-    }
-
-    &.loading .cover-content {
-        transform: scale(0.8);
-        height: auto;
-        opacity: 0;
-    }
-
-    #cover-image-blur {
-        z-index: 100;
-        height: 2%;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        background: linear-gradient(to bottom, rgba(0,0,0,0), var(--background-color));
-    }
-}
-
-/* floater */
-#floater {
-   font-family: "Ovo";
-   opacity: 0;
-   position: fixed;
-   bottom: 20px;
-   right: 20px; 
-   cursor: default;
-   transition: opacity 1s ease;
-   z-index: 3000;
-}
-
-#floater.visible {
-    opacity: 1;
-}
-
-body:not(.portal-visible) #floater {
-    opacity: 0;
-}
-
-#floater:hover {
-    background: var(--ghost-accent-color);
-}
-
-/* Home page */
-.site.home .site-content .site-main {
-    padding: 0;
-    
-    /* Hide page title for landing page, no need, and adjust first section to not be too low */
-    .single-title {
-        display: none;
-    }
-    .single-content.gh-content.gh-canvas {
-        margin-top: 0;
-    }
-
-    /* General home text styles */
-    p, span {
-        color: var(--text-color);
-        font-family: "Ovo";
-        text-align: center;
-        font-size: 35px;
-        @media (max-width: 640px) {
-            font-size: 25px;
-        }
-    }
-    h2, h4, h2 > span, h4 > span {
-        font-family: "Cinzel";
-        color: var(--text-color);
-        text-align: center;
-        font-size: 60px;
-        @media (max-width: 640px) {
-            font-size: 45px;
-        }
-    }
-
-    hr {
-        background-color: var(--ghost-accent-color);
-    }
-
-    /* Our story section */
-    .our-story {
-        grid-column: full;
-        .kg-header-card-text.kg-align-center {
-            padding: min(8vmax,150px) min(4vmax,80px);
-        }
-
-        .kg-card.kg-header-card {
-            background: none !important;
-        }
-
-        .kg-header-card-content picture {
-            display: flex;
-            align-items: center;
-            justify-content: center;       
-            position: relative;
-
-
-
-            img {
-                clip-path: ellipse(40% 40% at 50% 50%);
-                height: 100%;
-                max-height: 800px;
-                width: auto;
-                display: block;
-                @media (max-width: 640px) {
-                    aspect-ratio: unset !important;
-                }
-            }
-
-            /* &:before {
-                content: "";
-                background-color: var(--ghost-accent-color);
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
-                clip-path: ellipse(19.5% 41.3% at 50% 50%);
-            }
-            @media (max-width: 640px) {
-                &:before {
-                    clip-path: ellipse(41.5% 41.2% at 50% 50%) !important;
-                }
-            } */
-            
-            &:after {
-                content: "";
-                background-image: var(--image-border); /*url(/assets/images/storyImageBorder.svg); */
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
-            }
-        }
-    }
-
-    /* What When Where section */
-    .whatwhenwhere {
-        .kg-product-card-description p {
-            font-size: 24px !important;
-            text-align: center;
-            font-style: italic;
-        }
-
-        .kg-product-card-container {
-            background: none;
-            box-shadow: none;
-        }
-
-        /* Reorder product card to match title, image then description */
-        .kg-product-card-title-container {
-            order: 1;
-        }
-        img {
-            background: linear-gradient(0, var(--text-color) 0, var(--text-color) 0), linear-gradient(135deg, transparent 12px, var(--text-color) 12px), linear-gradient(0, var(--text-color) 0, var(--text-color) 0), linear-gradient(315deg, transparent 12px, var(--text-color) 12px);
-            background-position: bottom left, top left, top right, bottom right;
-            background-size: 50% 50%;
-            background-repeat: no-repeat;
-            padding: 13px;
-        }
-        .kg-product-card-description {
-            order: 3;
-        }
-
-    }
-
-    /* FAQ Section */
-    .faq {
-
-        margin-top: 80px;
-        padding: 10px;
-
-        h4, p {
-            text-align: left;
-        }
-
-        h4 {
-            font-size: 30px;
-        }
-
-        p {
-            padding-bottom: 1em;
-            font-size: 25px;
-        }
-    }
-}
-
-/* SNOW EFFECT */
-
-#snow {
-    z-index: -1;
-}
-
-.snowflake {
-    position: absolute;
-    z-index: -1;
-
-    width: 10px;
-    height: 10px;
-    background: linear-gradient(white, white);
-    border-radius: 50%;
-    filter: drop-shadow(0 0 10px white);
-  }

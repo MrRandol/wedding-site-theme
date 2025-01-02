@@ -2,22 +2,16 @@
 <html lang="{{{block "lang"}}}">
 
 <head>
+    {{ghost_head}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{@site.title}}</title>
 
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
-    <link rel="stylesheet" href="{{asset "built/screen.css"}}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ovo&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-
-    {{ghost_head}}
-
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&family=Playwrite+IT+Trad&family=Ovo&family=Playwrite+US+Trad:wght@100..400&family=Shadows+Into+Light&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <style>
         :root {
             {{#if @custom.background_color}}
@@ -26,14 +20,30 @@
             {{#if @custom.text_color}}
                 --text-color: {{@custom.text_color}};
             {{/if}}
-            {{#if @custom.image_border}}
-                --image-border: url({{@custom.image_border}});
+            {{#if @custom.background_image}}
+                --background-image: url({{@custom.background_image}});
+            {{/if}}
+            {{#if @custom.polaroid_1}}
+                --polaroid-1: url({{@custom.polaroid_1}});
+            {{/if}}
+            {{#if @custom.body_font}}
+                --body-font: {{@custom.body_font}};
+            {{/if}}
+            {{#if @custom.title_font}}
+                --title-font: {{@custom.title_font}};
+            {{/if}}
+            {{#if @custom.cover_font}}
+                --cover-font: {{@custom.cover_font}};
+            {{/if}}
+
+            {{#if @custom.mobile_width}}
+                --mobile-width: {{@custom.mobile_width}};
             {{/if}}
         }
     </style>
 </head>
 
-<body class="{{body_class}}{{{block "body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}{{^is "home"}}{{#if @site.cover_image}} is-head-brand{{/if}}{{/is}}">
+<body class="{{body_class}}{{{block "body_class"}}} is-head-left-logo{{^is "home"}}{{#if @site.cover_image}} is-head-brand{{/if}}{{/is}}">
 
 {{{body}}}
 
