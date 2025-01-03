@@ -2,24 +2,6 @@
 /* CROSS SITE CUSTOMIZATIONS */
 /* ------------------------- */
 
-#canvas {
-    display: block;
-    height: auto;
-    mix-blend-mode: multiply;
-    width: 597px;
-    max-width: 100%;
-    margin: auto;
-  }
-  
-  .our-portrait {
-    min-height: 450px;
-      .kg-image,
-      #canvas.hidden {
-        height: 0 !important;
-
-      }
-  }
-
 body {
     background: var(--background-image);
     background-size: auto;
