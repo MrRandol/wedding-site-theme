@@ -50,6 +50,8 @@ function RSVPScroll() {
     });
 }
 
+
+// Animation of the portrait image
 const canv = document.getElementById("canvas"),
       ctx = canv.getContext("2d"),
       imgSelector = document.querySelectorAll(".our-portrait figure img"),
@@ -57,10 +59,43 @@ const canv = document.getElementById("canvas"),
       
 imgMask.src = "https://res.cloudinary.com/dkcygpizo/image/upload/v1505176017/codepen/cloud-texture.png";
 const img = (imgSelector != null && imgSelector.length > 0) ? imgSelector[0] : null;
-
+const ourStory=document.getElementById("our-story");
+let scrolled = false;
+let loaded = false;
 let speed = 0;
+
+const observer = new window.IntersectionObserver(([entry]) => {
+  if (entry.isIntersecting) {
+    scrolled = true;
+    if (loaded == true) {
+        animateImage();
+    }
+    return
+  }
+}, {
+  root: null,
+  threshold: 0.1, // set offset 0.1 means trigger if atleast 10% of element in viewport
+})
+observer.observe(ourStory);
+
+img.onload = () => {
+    loaded = true;
+    if (scrolled == true) {
+        animateImage();
+    }
+}
+
+function animateImage() {
+    setTimeout(() => {
+        canv.width = img.naturalWidth;
+        canv.height = img.naturalHeight;
+        canv.classList.remove("hidden");
+        draw();
+      }, 500);
+}
+
 function draw() {
-  speed += 7;
+  speed += 8;
 
   const maskX = (canv.width - (70 + speed)) / 2,
         maskY = (canv.height - (40 + speed)) / 2;
@@ -75,20 +110,3 @@ function draw() {
 
   requestId = window.requestAnimationFrame(draw);
 }
-
-const ourStory=document.getElementById("our-story");
-const observer = new window.IntersectionObserver(([entry]) => {
-  if (entry.isIntersecting) {
-        setTimeout(() => {
-            canv.width = img.naturalWidth;
-            canv.height = img.naturalHeight;
-            canv.classList.remove("hidden");
-            draw();
-          }, 500);
-    return
-  }
-}, {
-  root: null,
-  threshold: 0.1, // set offset 0.1 means trigger if atleast 10% of element in viewport
-})
-observer.observe(ourStory);

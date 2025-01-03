@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 
-GHOST_HOST=http://192.168.50.5:7897
-#GHOST_HOST=http://test.mrrandol.duckdns.org
+#PROD
+#GHOST_HOST=https://shrutiandmax2025.info
+#KEY="6735011253a19f00016a9151:512af02071c720ff7d6659f4f0c03fb0acb32331e4867b2d1afbbba8f2ca7102"
 
+#LOCAL DEV
+GHOST_HOST=http://localhost:2368
+KEY="6776fca4f09f357eb40926d1:fd9b85808e7a22cf09aeae4fd74689fbedea503e11af665135c6333637178a48"
 rm ./dist/*.zip
 
 # Compile theme
 yarn zip
 
-
-# Admin API key goes here
-KEY="6735011253a19f00016a9151:512af02071c720ff7d6659f4f0c03fb0acb32331e4867b2d1afbbba8f2ca7102"
 
 # Split the key into ID and SECRET
 TMPIFS=$IFS
