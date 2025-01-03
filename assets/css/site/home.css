@@ -154,7 +154,8 @@
             padding: 2em 0;
             img {
                 mix-blend-mode: multiply;
-                height: 100%;
+                aspect-ratio: unset !important;
+                height: auto;
                 max-height: 750px;
                 width: auto;
                 display: block;
