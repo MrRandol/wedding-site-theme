@@ -43,9 +43,9 @@ signature=$(printf '%s' "${header_payload}" | openssl dgst -binary -sha256 -mac 
 
 TOKEN="${header_payload}.${signature}"
 
-echo "----------------------------------------------"
-echo "Uploading and activating randol"
-echo "----------------------------------------------"
+echo "-------------------------------------------------------------------------------------------------------------------"
+echo "Uploading and activating randol for ${GHOST_HOST}"
+echo "-------------------------------------------------------------------------------------------------------------------"
 # Make an authenticated request to create a post
 curl --silent --output /dev/null -w "Get token : %{http_code} \n" --show-error --fail --retry 3 -F "file=@./dist/randol.zip" -H "Authorization: Ghost $TOKEN" -H "Accept-Version: v3.0" ${GHOST_HOST}/ghost/api/admin/themes/upload \
 && curl --silent --output /dev/null -w "Upload theme : %{http_code} \n" --show-error --fail --retry 3 -X PUT -H "Authorization: Ghost $TOKEN" -H "Accept-Version: v3.0" "${GHOST_HOST}/ghost/api/admin/themes/randol/activate"
