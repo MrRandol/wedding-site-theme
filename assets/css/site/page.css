@@ -69,21 +69,48 @@
 /*************************************************************************
 *****                   MOBILE SPECIFICS                            *****
 *************************************************************************/
+.mobile-only {
+    display: none !important;
+}
 
 @media screen and (max-width:1200px) {
+    .gh-content>.kg-width-full+.kg-width-full:not(.kg-width-full.kg-card-hascaption+.kg-width-full) {
+        margin: 15px 0;
+    }
+
+    .kg-card.kg-header-card.kg-v2.kg-width-full.kg-content-wide:not(.kg-layout-split) picture img {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+    
     .kg-layout-split .kg-header-card-content {
         display: flex;
         flex-direction: column;
 
         picture {
-            translate: 0 -20px;
-            height: 450px;
+            height: 375px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                translate: 0 !important;
+                position: unset !important;
+                height: 325px !important;
+                width: 325px !important;
+            }
+        }
+
+        .kg-header-card-text.kg-align-center {
+            justify-content: space-between;
         }
     }
     .kg-card.kg-header-card.kg-layout-split.kg-swapped, .kg-card.kg-header-card.kg-layout-split:not(.kg-swapped) {
         .kg-header-card-text {
             align-items: center !important;
-            padding: min(12vmax, 260px) min(4vmax, 20px) min(12vmax, 100px) min(4vmax, 20px) !important;
+            padding: min(12vmax, 50px) min(4vmax, 20px) 0 min(4vmax, 20px) !important;
             p {
                 text-align: center !important;
             }
