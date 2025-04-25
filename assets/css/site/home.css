@@ -133,7 +133,7 @@
         background-image: url('../images/gingerbread-2.png');
         filter: drop-shadow(1px 2px 2px black);
         rotate: -13deg;
-        background-position: -5% 100% !important;
+        background-position: 25% 100% !important;
     }
     .our-story-decor-2 {
         background-image: url('../images/little_pinecone.png');

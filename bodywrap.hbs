@@ -20,6 +20,13 @@
             {{#if @custom.text_color}}
                 --text-color: {{@custom.text_color}};
             {{/if}}
+            {{#if @custom.invert_text_color}}
+                --invert-text-color: {{@custom.invert_text_color}};
+            {{/if}}
+            {{#if @custom.accent_background}}
+                --accent-background: {{@custom.accent_background}};
+            {{/if}}
+
             {{#if @custom.background_image}}
                 --background-image: url({{@custom.background_image}});
             {{/if}}

@@ -1,0 +1,92 @@
+.kg-card.kg-header-card {
+    grid-column: full !important;
+}
+
+.kg-card.kg-header-card.kg-layout-split.kg-swapped {
+    .kg-header-card-text {
+        align-items: flex-end;
+        padding: min(12vmax, 260px) min(4vmax, 20px) min(12vmax, 260px) min(12vmax, 260px);
+    }
+    p {
+        text-align: right !important;
+    }
+}
+
+.kg-card.kg-header-card.kg-layout-split:not(.kg-swapped) {
+    .kg-header-card-text {
+        align-items: flex-start;
+        padding: min(12vmax, 260px) min(12vmax, 260px) min(12vmax, 260px) min(4vmax, 20px);
+    }
+    p {
+        text-align: left !important;
+    }
+}
+
+
+.kg-card.kg-header-card.kg-width-full picture img{
+    object-fit: contain;
+    object-position: center;
+    mix-blend-mode: multiply;
+}
+
+.kg-card.kg-header-card.kg-layout-split picture {
+    position: relative;
+    
+    & > img.kg-header-card-image {
+        position: absolute;
+        filter: drop-shadow(3px 10px 12px black);
+        height: 500px;
+        width: 500px;
+        padding: 0 !important;
+        
+        left: 15%;
+    }
+}
+.kg-card.kg-header-card.kg-layout-split:not(.kg-swapped) picture > img.kg-header-card-image {
+    left: unset;
+    right: 15%;
+}
+
+
+.kg-card:nth-child(3n).kg-header-card.kg-layout-split picture > img.kg-header-card-image {
+    rotate: -9deg;
+    translate: 6% -3%;
+}
+.kg-card:nth-child(3n+1).kg-header-card.kg-layout-split picture > img.kg-header-card-image {
+    rotate: 5deg;
+    translate: 2% 2%;
+}
+.kg-card:nth-child(3n+2).kg-header-card.kg-layout-split picture > img.kg-header-card-image {
+    rotate: -3deg;
+    translate: -2% -1%;
+}
+
+.kg-card:nth-child(3n+3).kg-header-card.kg-layout-split picture > img.kg-header-card-image {
+    rotate: 6deg;
+    translate: 4% -1%;
+}
+
+/*************************************************************************
+*****                   MOBILE SPECIFICS                            *****
+*************************************************************************/
+
+@media screen and (max-width:1200px) {
+    .kg-layout-split .kg-header-card-content {
+        display: flex;
+        flex-direction: column;
+
+        picture {
+            translate: 0 -20px;
+            height: 450px;
+        }
+    }
+    .kg-card.kg-header-card.kg-layout-split.kg-swapped, .kg-card.kg-header-card.kg-layout-split:not(.kg-swapped) {
+        .kg-header-card-text {
+            align-items: center !important;
+            padding: min(12vmax, 260px) min(4vmax, 20px) min(12vmax, 100px) min(4vmax, 20px) !important;
+            p {
+                text-align: center !important;
+            }
+        }
+    }
+}
