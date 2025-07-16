@@ -27,8 +27,14 @@
                 --accent-background: {{@custom.accent_background}};
             {{/if}}
 
+            {{#if @custom.landing_image}}
+                --landing-image: url({{@custom.landing_image}});
+            {{/if}}
             {{#if @custom.background_image}}
                 --background-image: url({{@custom.background_image}});
+            {{/if}}
+            {{#if @custom.ganesh_logo}}
+                --ganesh-logo: url({{@custom.ganesh_logo}});
             {{/if}}
             {{#if @custom.polaroid_1}}
                 --polaroid-1: url({{@custom.polaroid_1}});
@@ -45,6 +51,10 @@
 
             {{#if @custom.mobile_width}}
                 --mobile-width: {{@custom.mobile_width}};
+            {{/if}}
+
+            {{#if @site.logo}}
+                --site-logo: {{@site.logo}};
             {{/if}}
         }
     </style>

@@ -1,0 +1,423 @@
+/* --------------------- */
+/* SPECIFIC TO HOME PAGE */
+/* --------------------- */
+
+/* Cover is the "splash screen" of the site. Specific to home */
+.cover {
+    height: 100vh;
+    margin-top: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+        background-image: url('../images/garland-top.png');
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        background-size: 42vh;
+        mix-blend-mode: multiply;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        content: "";
+    }
+
+    .site-logo {
+        max-height: 7vh;
+        z-index: 10;
+        transition: opacity 4s ease;
+        opacity: 1;
+        margin: auto;
+        position: absolute;
+        top: 10px;
+        background-color: #fff;
+        border-radius: 50%;
+        filter: drop-shadow(3px 4px 3px black);
+        mix-blend-mode: luminosity;
+    }
+
+    .cover-description, .cover-logo {
+        filter: drop-shadow(10px 5px 4px #ccc);
+    }
+
+    .cover-content {
+        min-height: 20vh;
+        transition: opacity 4s ease, transform 4s ease;
+        scale: 1;
+        opacity: 1;
+        max-width: 900px;
+        z-index: 200;
+        
+        .cover-description {
+            color: var(--text-color) !important;
+            font-family: var(--cover-font) !important;
+            font-style: normal;
+            font-weight: 600;
+            margin-top: 40px;
+            font-size: 30px;
+        }
+    }
+    
+    /* Hide while loading to proc animation */
+    &.loading{
+        .site-logo {
+            opacity: 0;
+        }
+        .cover-content {
+            scale: 0.8;
+            height: auto;
+            opacity: 0;
+        }
+    }
+
+    #rsvp-banner {
+        background: url('../images/banner4.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 65% 50%;
+        height: 60px;
+        width: 260px;
+        margin: -10vh auto 10vh auto;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 42px;
+        font-weight: bold;
+        color: white;
+        mix-blend-mode: multiply;
+        cursor: pointer;
+        transition: all 1s ease;
+        filter: drop-shadow(3px 5px 5px black);
+        font-family: var(--cover-font);
+        font-size: 1.2em;
+    }
+    
+    #rsvp-banner:hover {
+        scale: 1.15;
+    }
+}
+
+/* Content of the home page */
+.site.home .site-content .site-main {
+    /* Hide title and adjust containers for better display */
+    padding: 0;
+    .single-title {
+        display: none;
+    }
+    .single-content.gh-content.gh-canvas {
+        margin-top: 0;
+    }
+
+    /* side decors
+    TODO : Find a better way to handle them around */
+    .side-decor {
+        background-repeat: no-repeat;
+        grid-column: full;
+        height: 200px;
+        margin: 0;
+        position: relative;
+        bottom: 100px;
+        margin-bottom: -200px;
+        mix-blend-mode: multiply;
+        background-size: contain;
+        &.right {
+            background-position: bottom right;
+        }
+        &.left {
+            background-position: bottom left;
+        }
+    }
+
+    .our-story-decor-1 {
+        background-image: url('../images/gingerbread-2.png');
+        filter: drop-shadow(1px 2px 2px black);
+        rotate: -13deg;
+        background-position: 25% 100% !important;
+    }
+    .our-story-decor-2 {
+        background-image: url('../images/little_pinecone.png');
+    }
+
+
+    /* OUR STORY */
+    /* --------- */
+    .our-story {
+        .our-story-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .our-portrait {
+            padding: 2em 0;
+            img {
+                mix-blend-mode: multiply;
+                aspect-ratio: unset !important;
+                height: auto;
+                max-height: 750px;
+                width: auto;
+                display: block;
+            }
+        }
+    }
+
+    /* What When Where section */
+    .whatwhenwhere {
+        .what, .when, .where {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+        }
+
+        .polaroid {
+            width: 300px;
+            height: 360px;
+            position: relative;
+            background: linear-gradient(120deg, #fff, #DDD 60%);
+            filter: drop-shadow(3px 10px 12px black);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            margin: 8% 0;
+
+            &:before, &:after {
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position-x: 50%;
+                content: "";
+                position: absolute;
+                z-index: 1000;
+                height: 50px;
+                width: 100%;
+                left: 0;
+                mix-blend-mode: hard-light;
+            }
+
+            img {
+                position: absolute;
+                top: 20px;
+                left: 10px;
+                width: 280px;
+                height: 280px;
+                background: #eee;
+                overflow: hidden;
+                padding: 0;
+            }
+
+            figcaption {
+                position: absolute;
+                font-weight: bold;
+                bottom: 0;
+                width: 100%;
+                margin-top: 0;
+                height: 60px;
+                line-height: 60px;
+                vertical-align: middle;
+            }
+        }
+
+        .polaroid-note {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            p {
+                z-index: 100;
+                padding: 10px 20px;
+                width: 100%;
+                font-weight: bold;
+            }
+
+            .note-background {
+                width: 100%;
+                height: 200px;
+                background-position: 50% 50%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: absolute;
+                mix-blend-mode: multiply;
+                opacity: .85;
+                &:before {
+                    content: "";
+                    background-repeat: no-repeat;
+                    width: 150px;
+                    height: 150px;
+                    display: block;
+                    position: absolute;
+                    background-size: contain;
+                }
+            }
+        }
+
+        .what {
+            .polaroid {
+                rotate: 10deg;
+                translate: 0 -2%;
+                position: relative;
+            }
+            .polaroid:before {
+                background-image: url(../images/tape10.png);
+                top: -37px;
+                background-position-x: 0;
+                left: -51px;
+                rotate: -17deg;
+                height: 75px;
+            }
+            .polaroid:after {
+                content: none;
+            }
+            .polaroid-note {
+                p {
+                    color: white !important;
+                    filter: drop-shadow(0px 0px 3px black);
+                }
+                rotate: -3deg;
+                .note-background {
+                    background-image: url(../images/water-note-7.png);
+                    &:before {
+                        background-image: url(../images/hanging-decor-8.png);
+                        right: 0;
+                        bottom: calc(-47%);
+                    }
+                }
+            }
+        }
+        .when {
+            flex-direction: row-reverse;
+
+            .polaroid {
+                translate: 0 -10%;
+                rotate: -15deg;
+            }
+            .polaroid:before {
+                background-image: url(../images/tape7.png);
+                top: -43px;
+                height: 70px;
+            }
+
+            .polaroid-note {
+                p {
+                    color: white !important;
+                    filter: drop-shadow(0px 0px 3px black);
+                    width: 65%;
+                    translate: -20% 0;
+                }
+                rotate: -5deg;
+                .note-background {
+                    background-image: url(../images/water-note-6.png);
+                    &:before {
+                        background-image: url(../images/hanging-decor-2.png);
+                        left: 0;
+                        bottom: calc(-56%);
+                    }
+                }
+            }
+        }
+        .where {
+            .polaroid {
+                rotate: 5deg;
+                translate: 0 5%;
+                margin-bottom: 12%;
+            }
+            .polaroid:before {
+                background-image: url(../images/tape5.png);
+                background-position-x: 100%;
+                rotate: -12deg;
+                top: -8px;
+                height: 110px;
+                left: 25px;
+            }
+            .polaroid:after {
+                background-image: url(../images/tape8.png);
+                background-position-x: 0;
+                bottom: 65px;
+                left: -115px;
+                rotate: -80deg;
+                height: 100px;
+            }
+            .polaroid-note {
+                p {
+                    width: 80%;
+                    translate: -2% 0;
+                    filter: drop-shadow(0px 0px 3px white);
+                }
+                rotate: -8deg;
+                .note-background {
+                    background-image: url(../images/water-note-4.png);
+                    &:before {
+                        background-image: url(../images/hanging-decor-3.png);
+                        right: 12%;
+                        bottom: calc(-48%);
+                    }
+                }
+            }
+        }
+    }
+    .what-when-where-decor-1 {
+        background-image: url('../images/pinecones-duo.png');
+        height: 475px;
+        margin: 0 0 -475px;
+        bottom: -300px;
+
+    }
+    .what-when-where-decor-2 {
+        background-image: url('../images/snowy-pines.png');
+        height: 475px;
+        bottom: 450px;
+        margin: 0 0 -475px;
+    }
+
+    /* FAQ Section */
+    .faq {
+        margin-top: 80px;
+        padding: 10px;
+
+        .kg-toggle-heading:before {
+            content: "";
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            background-image: url(../images/mini-ball.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: contain;
+        }
+
+        .kg-card.kg-toggle-card {
+            &:nth-child(1) .kg-toggle-heading:before { /* VISA */
+                background-image: url(../images/mini-gift.png);
+            }
+            &:nth-child(2) .kg-toggle-heading:before { /* DRESS CODE */
+                background-image: url(../images/mini-gingerbread.png);
+            }
+            &:nth-child(3) .kg-toggle-heading:before { /* SPECIAL REQUESTS */
+                background-image: url(../images/mini-ball.png);
+            }
+            &:nth-child(4) .kg-toggle-heading:before { /* WHEN ARRIVE ? */
+                background-image: url(../images/mini-bell.png);
+            }
+            &:nth-child(5) .kg-toggle-heading:before { /* LOST AND UNKNOWN */
+                background-image: url(../images/mini-lamp.png);
+            }
+        }
+
+        .kg-toggle-heading > h4 {
+            padding-left: 60px;
+        }
+
+        h5, p {
+            text-align: left;
+        }
+
+        p {
+            padding: 0 1em 1em;
+            font-size: 21px !important;
+        }
+    }
+
+}
+

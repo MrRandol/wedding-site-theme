@@ -41,7 +41,15 @@
                 "group": "design"
             },
 
+            "landing_image": {
+                "type": "image",
+                "group": "design"
+            },
             "background_image": {
+                "type": "image",
+                "group": "design"
+            },
+            "ganesh_logo": {
                 "type": "image",
                 "group": "design"
             },
