@@ -45,6 +45,10 @@
                 "type": "image",
                 "group": "design"
             },
+            "landing_image_mobile": {
+                "type": "image",
+                "group": "design"
+            },
             "background_image": {
                 "type": "image",
                 "group": "design"

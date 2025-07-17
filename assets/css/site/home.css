@@ -7,20 +7,26 @@
 
 /* Container for entire landing page */
 .landing-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-  position: relative; /* For possible positioning */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 /* Thin top header */
 .header-top {
-  height: 40px; /* Thin header height */
+  height: 100px; /* Thin header height */
   background-image: url('../images/garland-top.png');
   background-repeat: repeat-x;
   background-position: center center;
-  background-size: auto;
+  background-size: contain;
   position: relative;
+  width: 100%;
 }
 
 /* Top middle round logo overlapping header */
@@ -29,7 +35,7 @@
   position: relative;
   width: 100%;
   height: 0; /* To reserve space */
-  margin-bottom: 40px; /* To separate header and nav */
+  margin-bottom: 0; /* To separate header and nav */
 }
 
 .logo-top {
@@ -45,7 +51,7 @@
   
   /* Center horizontally */
   position: absolute;
-  top: -35px;
+  top: -95px;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -67,7 +73,18 @@ nav.main-nav {
 nav.main-nav ul {
   list-style: none;
   display: flex;
+  justify-content: space-evenly;
   gap: 30px;
+  padding: 0;
+  margin-top: 0 !important;
+}
+
+nav.main-nav .gh-content {
+margin-top: 0;
+}
+
+nav.main-nav ul li {
+  margin: 0;
 }
 
 nav.main-nav ul li a {
@@ -82,7 +99,7 @@ nav.main-nav ul li a {
 /* Hover effect: change background and color */
 nav.main-nav ul li a:hover,
 nav.main-nav ul li a:focus {
-  background-color: #007BFF;
+  background-color: var(--ghost-accent-color);
   color: white;
   outline: none;
 }
@@ -92,13 +109,12 @@ nav.main-nav ul li a:focus {
 .main-image-wrapper {
   position: relative;
   width: 100%;
-  /* 16:10 aspect ratio padding trick: 
-     (height/width) * 100% = (10/16)*100% = 62.5% */
-  padding-top: 44%;
-  margin: 30px 0 20px;
+  max-width: 95vw;
+  margin: 30px 0 0;
   overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  flex-grow: 10;
 }
 
 .main-image-wrapper div.main-image {
@@ -117,25 +133,39 @@ nav.main-nav ul li a:focus {
 .centered-logo {
   width: 175px;
   height: 175px;
-  margin: 0 auto 50px auto;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-/* Responsive Styles */
+/* =============================
+Responsive Styles 
+==============================*/
 
 /* Medium devices (Tablets, 768px and up) */
 @media only screen and (max-width: 991px) {
+  .main-image-wrapper div.main-image {
+    background-image: var(--landing-image-mobile); /* Replace with your main image */
+  }
+
   .logo-top {
-    width: 100px;
-    height: 100px;
-    top: -50px;
+    width: 50px;
+    height: 50px;
+    top: -95px;
     border-width: 4px;
+  }
+
+  .logo-wrapper {
+    margin-bottom: 10px; /* To separate header and nav */
   }
 
   nav.main-nav ul {
     gap: 20px;
+  }
+
+  nav.main-nav ul li a {
+    padding: 6px;
+    font-size: 0.95rem;
   }
 
   nav.main-nav {
@@ -146,7 +176,6 @@ nav.main-nav ul li a:focus {
   .centered-logo {
     width: 120px;
     height: 120px;
-    margin-bottom: 40px;
   }
 }
 
@@ -158,10 +187,14 @@ nav.main-nav ul li a:focus {
   }
 
   .logo-top {
-    width: 80px;
-    height: 80px;
-    top: -40px;
+    width: 40px;
+    height: 40px;
+    top: -30px;
     border-width: 3px;
+  }
+
+  .logo-wrapper {
+    margin-bottom: 15px; /* To separate header and nav */
   }
 
   nav.main-nav {
@@ -177,7 +210,8 @@ nav.main-nav ul li a:focus {
   }
 
   nav.main-nav ul li a {
-    padding: 10px;
+    padding: 3px;
+    font-size: 0.9rem;
     display: block;
     width: 100%;
     max-width: 200px;
@@ -192,27 +226,30 @@ nav.main-nav ul li a:focus {
   .centered-logo {
     width: 100px;
     height: 100px;
-    margin-bottom: 30px;
   }
 }
 
 /* Extra small devices (very small phones) */
 @media only screen and (max-width: 400px) {
   .logo-top {
-    width: 70px;
-    height: 70px;
-    top: -35px;
+    width: 35px;
+    height: 35px;
+    top: -30px;
     border-width: 2px;
+  }
+
+  .logo-wrapper {
+    margin-bottom: 20px; /* To separate header and nav */
   }
 
   nav.main-nav ul li a {
     max-width: 150px;
-    font-size: 0.9rem;
+    padding: 2px;
+    font-size: 0.85rem;
   }
 
   .centered-logo {
     width: 80px;
     height: 80px;
-    margin-bottom: 20px;
   }
 }
