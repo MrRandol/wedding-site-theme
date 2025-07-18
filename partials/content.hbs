@@ -20,7 +20,10 @@
             </div>
             {{/is}}
 
-            <h1 class="single-title">{{title}}</h1>
+            {{#if access}}
+                <h1 class="single-title">{{title}}</h1>
+            {{/if}}
+
 
             {{#if custom_excerpt}}
                 <div class="single-excerpt">

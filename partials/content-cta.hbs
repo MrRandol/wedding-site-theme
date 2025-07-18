@@ -1,6 +1,12 @@
 {{{html}}}
-
 <section class="single-cta">
-    <h2 class="single-cta-title">This content is accessible for invited members only</h2>
-    <button class="button-text single-cta-footer" data-portal="signin">Click here to enter your email and login</button>
+    {{#has tag="#fr"}}
+        <h2 class="single-cta-title">Ce contenu n'est accessible qu'aux membres invités.</h2>
+        <button class="button-text single-cta-footer" data-portal="signin">Cliquez ici pour vous connecter avec votre email</button>
+    {{!-- {{/has}}
+    {{#has tag="en"}} --}}
+    {{else}}
+        <h2 class="single-cta-title">This content is accessible for invited members only</h2>
+        <button class="button-text single-cta-footer" data-portal="signin">Click here to login with your email</button>
+    {{/has}}
 </section>
