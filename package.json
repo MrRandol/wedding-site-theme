@@ -68,7 +68,8 @@
                     "Ovo",
                     "Playwrite US Trad",
                     "Playwrite IT Trad",
-                    "Playwrite AU QLD"
+                    "Playwrite AU QLD",
+                    "Patrick Hand"
                 ],
                 "default": "Playwrite AU QLD",
                 "group": "fonts"
@@ -81,7 +82,8 @@
                     "Shadows Into Light",
                     "Shadows Into Light Two",
                     "Playwrite IT Trad",
-                    "Playwrite AU QLD"
+                    "Playwrite AU QLD",
+                    "Patrick Hand"
                 ],
                 "default": "Shadows Into Light Two",
                 "group": "fonts"
@@ -94,7 +96,8 @@
                     "Shadows Into Light",
                     "Shadows Into Light Two",
                     "Playwrite IT Trad",
-                    "Playwrite AU QLD"
+                    "Playwrite AU QLD",
+                    "Patrick Hand"
                 ],
                 "default": "Ovo",
                 "group": "fonts"

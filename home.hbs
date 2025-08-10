@@ -6,9 +6,15 @@
       <div class="logo-top"></div>
     </div>
     <nav class="main-nav">
+      <div class="single-content gh-content gh-canvas kg-content-wide">
         {{#post}}
-            {{> "content"}}
+            {{#has tag="#fr"}}
+                {{navigation type="secondary"}}
+            {{else}}
+                {{navigation}}
+            {{/has}}
         {{/post}}
+      </div>
     </nav>
     <div class="main-image-wrapper">
       <div class="main-image"></div>

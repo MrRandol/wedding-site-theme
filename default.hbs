@@ -5,7 +5,13 @@
     <header id="gh-head" class="gh-head gh-outer">
         <div class="gh-head-inner">
             <nav class="gh-head-menu">
-                {{navigation}}
+                {{#post}}
+                    {{#has tag="#fr"}}
+                        {{navigation type="secondary"}}
+                    {{else}}
+                        {{navigation}}
+                    {{/has}}
+                {{/post}}
             </nav>
         </div>
     </header>
@@ -19,11 +25,6 @@
             <div class="gh-copyright">
                 {{@site.title}} © {{date format="YYYY"}}
             </div>
-            {{#if @site.secondary_navigation}}
-                <nav class="gh-foot-menu">
-                    {{navigation type="secondary"}}
-                </nav>
-            {{/if}}
         </div>
     </footer>
 

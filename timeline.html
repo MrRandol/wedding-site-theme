@@ -1,0 +1,131 @@
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--ghost-accent-color);
+    transform: translateX(-50%);
+}
+
+.timeline-event {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.timeline-event .event-image, .timeline-event .content {
+    width: 50%;
+}
+
+.timeline-event .event-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline-event.left .content, .timeline-event.left .content h2 {
+    order: 2;
+    h2, p{
+        text-align: right;
+    }
+}
+
+.timeline-event.left .event-image, .timeline-event.left .content .title-line {
+    order: 1;
+}
+
+.timeline-event.right .content, .timeline-event.right .content h2 {
+    order: 1;
+    h2, p{
+        text-align: left;
+    }
+}
+
+.timeline-event.right .event-image, .timeline-event.right .content .title-line {
+    order: 2;
+}
+
+.event-image img {
+    height: 80px;
+    width: auto;
+}
+
+.title-wrapper::before{
+    content: '';
+    background-color: var(--ghost-accent-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-10px);
+}
+
+.title-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-line {
+    content: '';
+    display: block;
+    flex-grow: 1;
+    height: 1px;
+    border-top: 3px dotted var(--ghost-accent-color);
+}
+
+.content h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+}
+
+.content p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.hashtag {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .timeline-line::before {
+    left: 20px;
+    }
+
+    .timeline-event {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 40px;
+    text-align: left;
+    }
+
+    .timeline-event.left .event-image,
+    .timeline-event.right .event-image,
+    .timeline-event.left .content,
+    .timeline-event.right .content {
+    order: unset;
+    margin: 0 0 1rem 0;
+    }
+
+    .event-image img {
+    width: 60px;
+    }
+}

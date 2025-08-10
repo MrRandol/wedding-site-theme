@@ -88,7 +88,7 @@ nav.main-nav ul li {
 }
 
 nav.main-nav ul li a {
-  color: #333;
+  color: var(--ghost-accent-color);
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 4px;
@@ -102,6 +102,7 @@ nav.main-nav ul li a:focus {
   background-color: var(--ghost-accent-color);
   color: white;
   outline: none;
+  opacity: 1;
 }
 
 /* Main 16:10 image container */
