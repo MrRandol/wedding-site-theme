@@ -87,6 +87,10 @@ nav.main-nav ul li {
   margin: 0;
 }
 
+nav.main-nav ul li.nav-home, nav.main-nav ul li.nav-accueil {
+  display: none;
+}
+
 nav.main-nav ul li a {
   color: var(--ghost-accent-color);
   text-decoration: none;
@@ -204,7 +208,8 @@ Responsive Styles
   }
 
   nav.main-nav ul {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
     width: 100%;
     align-items: center;
