@@ -160,3 +160,36 @@ footer {
         margin-top: 20px;
     }
 }
+
+/* BURGER MENU */
+@media (max-width: 767px) {
+    .gh-burger {
+        &:before,
+        &:after {
+            background-color: var(--invert-text-color);
+            height: 2px;
+        }
+        &:before {
+            top: 10px;
+        }
+        &::after {
+            bottom: 10px;
+        }
+    }
+
+    body:not(.is-head-open) #gh-head .gh-head-inner {
+        grid-template-rows: 1fr !important;
+    }
+
+    .is-head-open:not(.is-head-brand):not(.is-head-dark):not(.is-head-transparent) #gh-head {
+        background-color: color-mix(in srgb, var(--background-color) 94%, transparent);
+
+        nav .nav li a {
+            color: var(--text-color);
+        }
+
+        .nav li.nav-current a {
+            border-bottom: 2px solid var(--accent-background);
+        }
+    }
+}
